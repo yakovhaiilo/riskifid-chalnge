@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="form-group">
+      <label for="query">Search for a Movie</label>
+      <input 
+        id="query" 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="query"
+        (keyup.enter)="getSearchResults()">
+    </div>
+    <button type="button" (click)="getSearchResults()" class="form-control btn btn-primary">Search</button>
+    <hr>
+
+    
+  <ul *ngIf = "movies" >
+    <li *ngFor = "let movie of movies" >
+      <h3 class="name">{{movie.title}}</h3>
+      <p class="name"> popularity : {{movie.popularity}}</p>
+      <p class="name"> overview : {{movie.overview}}</p>
+      <img src = "{{imgUrl + movie.poster_path}}" ><img>
+      <a [routerLink]="['/movie', movie.id]">page datails</a>
+    </li>
+    </ul>
+   
+  </div>
+  
